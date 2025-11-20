@@ -1,0 +1,12 @@
+// Ejecutar en la shell de Mongo o en Atlas (Run command)
+use examen_auth;
+
+// Colección usuarios (documentos flexibles)
+db.createCollection('usuarios');
+db.usuarios.createIndex({ username: 1 }, { unique: true });
+db.usuarios.createIndex({ email: 1 }, { unique: true });
+
+// Colección logs
+db.createCollection('logs');
+db.logs.createIndex({ user_id: 1 });
+db.logs.createIndex({ fecha: -1 });
